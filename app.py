@@ -90,7 +90,6 @@ st.markdown(about, unsafe_allow_html=True)
 uploaded_file = st.file_uploader("Upload an jpg image", type=["jpg"])
 if uploaded_file is not None:
     image = uploaded_file.getvalue()
-    st.write(image)
     
 # ================================================================================================
 OBJDETECTIONMODEL = st.selectbox(
