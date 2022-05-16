@@ -107,8 +107,8 @@ FINDERMODEL = st.selectbox(
 st.write('You selected:', FINDERMODEL)
 
 # ================================================================================================
-objectDetectorModel = torch.hub.load(OBJDETECTIONREPO, OBJDETECTIONMODEL);
-objectFinderModel, preProcess = clip.load(FINDERMODEL, device=DEVICE);
+objectDetectorModel = torch.hub.load(OBJDETECTIONREPO, OBJDETECTIONMODEL)
+objectFinderModel, preProcess = clip.load(FINDERMODEL, device=DEVICE)
 
 # ================================================================================================
 
