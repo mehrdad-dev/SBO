@@ -1,6 +1,8 @@
 # Base ----------------------------------------
 streamlit
 matplotlib
+seaborn
+pandas
 numpy>=1.18.5
 opencv-python
 PyYAML>=5.3.1
