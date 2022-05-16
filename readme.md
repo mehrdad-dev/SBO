@@ -10,9 +10,9 @@ Search between the objects in an image.
 ## Example
 **Query:** Clock
 
-```python
-![Mehrdad Mohammadian](https://raw.githubusercontent.com/mehrdadn/streamlit-sbo/master/test_images/ex1.png)
-![Mehrdad Mohammadian](https://raw.githubusercontent.com/mehrdadn/streamlit-sbo/master/test_images/ex1-1.png)
+
+![Mehrdad Mohammadian](https://raw.githubusercontent.com/mehrdad-dev/SBO/main/test_images/ex1.png)
+![Mehrdad Mohammadian](https://raw.githubusercontent.com/mehrdad-dev/SBO/main/test_images/ex1-1.png)
 
 ## License
 
