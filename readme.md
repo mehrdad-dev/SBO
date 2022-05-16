@@ -19,7 +19,7 @@ Run this notebook on Google Colab and test of your images!
 
 ## License
 
-[MIT license]()
+[MIT license](https://github.com/mehrdad-dev/SBO/blob/main/LICENSE)
 
 ## Based on
 - [Openai CLIP](https://pytorch.org/hub/ultralytics_yolov5/)
