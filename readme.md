@@ -3,8 +3,8 @@
 Search between the objects in an image.
 
 ## Demo & Notebook
-[Demo]
-[Notebook]
+[Demo](https://share.streamlit.io/mehrdad-dev/sbo/main/app.py)
+[Notebook]()
 
 
 ## License
