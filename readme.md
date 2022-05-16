@@ -3,7 +3,7 @@
 Search between the objects in an image.
 
 ## Demo & Notebook
-**Image:** [<img src="https://colab.research.google.com/assets/colab-badge.svg" align="center">](https://colab.research.google.com/github/vijishmadhavan/Crop-CLIP/blob/master/notebooks/search_objects_on_images.ipynb)
+[<img src="https://colab.research.google.com/assets/colab-badge.svg" align="center">](https://colab.research.google.com/github/vijishmadhavan/Crop-CLIP/blob/master/notebooks/search_objects_on_images.ipynb)
 
 [Demo](https://share.streamlit.io/mehrdad-dev/sbo/main/app.py)
 
