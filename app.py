@@ -111,7 +111,7 @@ objectFinderModel, preProcess = clip.load(FINDERMODEL, device=DEVICE)
 
 # ================================================================================================
 
-query = st.text_input('Search Query:', 'For example: a black bag')
+query = st.text_input('Search Query:')
 
 left_column, right_column = st.columns(2)
 pressed = left_column.button('Search!')
