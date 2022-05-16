@@ -22,8 +22,5 @@ Run this notebook on Google Colab and test of your images!
 [MIT license]()
 
 ## Based on
-- [Openai CLIP]()
-- [YOLO v5]()
-
-
-## Cite
+- [Openai CLIP](https://pytorch.org/hub/ultralytics_yolov5/)
+- [YOLO v5](https://github.com/openai/CLIP)
