@@ -23,7 +23,7 @@ Sorted from left based on similarity.
 
 ![Mehrdad Mohammadian](https://raw.githubusercontent.com/mehrdad-dev/SBO/main/test_images/ex1-1.png)
 
-
+ 
 **Query:** wine glass
 
 ![Mehrdad Mohammadian](https://raw.githubusercontent.com/mehrdad-dev/SBO/main/test_images/ex2.png)
