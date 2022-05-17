@@ -128,7 +128,6 @@ query = st.text_input('Search Query:')
 uploaded_file = st.file_uploader("Upload an jpg image", type=["jpg"])
 image = 0
 if uploaded_file is not None:
-    global image
     image = uploaded_file.read()
     image = np.array(image)
     print(image)
