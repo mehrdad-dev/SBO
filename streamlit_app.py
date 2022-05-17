@@ -108,7 +108,7 @@ if go:
         return objectDetectorModel, objectFinderModel, preProcess
 
 
-    global objectDetectorModel, objectFinderModel, preProcess = get_model_session(OBJDETECTIONREPO,
+    objectDetectorModel, objectFinderModel, preProcess = get_model_session(OBJDETECTIONREPO,
                                                                             OBJDETECTIONMODEL,
                                                                             FINDERMODEL, DEVICE)
     st.info('Models loaded!')
