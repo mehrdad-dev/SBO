@@ -14,9 +14,6 @@ N = 5
 
 def objectDetection(img, model) -> tuple():
     image = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-    # image_name = random
-    # image_name = image_name.split('.')[0]
-
     result = model(image)
     croped_objects = result.crop(save=False)
     
@@ -25,12 +22,6 @@ def objectDetection(img, model) -> tuple():
         listOfObjects.append(cv2.cvtColor(obj['im'], cv2.COLOR_BGR2RGB))
 
     detectedObjects = result.render()[0]
-    # path = image_name + '/crops/**/*.jpg'    
-
-    # listOfObjects = []
-    # for filename in glob(path):
-    #     obj = cv2.cvtColor(cv2.imread(filename), cv2.COLOR_BGR2RGB)
-    #     listOfObjects.append(obj)     
 
     return listOfObjects, detectedObjects
 
@@ -77,11 +68,11 @@ def pipeline(image, query):
     st.title('Finded Objects:')
     for index, img in enumerate(images):
         img = np.array(img)
-        st.image(img, caption=scores[index])
+        st.image(img, caption='Score: ' + scores[index])
 
 # ================================================================================================
-# image = Image.open('assets/BBC_News.png')
-# st.image(image, caption=None)
+image = Image.open('test_images/logo.png')
+st.image(image, caption=None)
 
 st.title('Search Between the Objects - SBO')
 st.markdown(
