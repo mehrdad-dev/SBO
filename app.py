@@ -106,8 +106,20 @@ FINDERMODEL = st.selectbox(
 st.write('You selected:', FINDERMODEL)
 
 # ================================================================================================
-objectDetectorModel = torch.hub.load(OBJDETECTIONREPO, OBJDETECTIONMODEL)
-objectFinderModel, preProcess = clip.load(FINDERMODEL, device=DEVICE)
+@st.experimental_singleton
+def get_model_session(OBJDETECTIONREPO, OBJDETECTIONMODEL, FINDERMODEL, DEVICE):
+    objectDetectorModel = torch.hub.load(OBJDETECTIONREPO, OBJDETECTIONMODEL)
+    objectFinderModel, preProcess = clip.load(FINDERMODEL, device=DEVICE)
+
+    return objectDetectorModel, objectFinderModel, preProcess
+
+
+objectDetectorModel, objectFinderModel, preProcess = get_model_session(OBJDETECTIONREPO,
+                                                                        OBJDETECTIONMODEL,
+                                                                         FINDERMODEL, DEVICE)
+
+# objectDetectorModel = torch.hub.load(OBJDETECTIONREPO, OBJDETECTIONMODEL)
+# objectFinderModel, preProcess = clip.load(FINDERMODEL, device=DEVICE)
 
 # ================================================================================================
 
