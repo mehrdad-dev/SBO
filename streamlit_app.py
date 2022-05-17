@@ -100,29 +100,29 @@ FINDERMODEL = st.selectbox(
 st.write('You selected:', FINDERMODEL)
 
 # ================================================================================================
-left_column, right_column = st.columns(2)
-go = left_column.button('Load Models!')
-if go:
-    @st.experimental_singleton
-    def get_model_session(OBJDETECTIONREPO, OBJDETECTIONMODEL, FINDERMODEL, DEVICE):
-        models = []
+# left_column, right_column = st.columns(2)
+# go = left_column.button('Load Models!')
+# if go:
+#     @st.experimental_singleton
+#     def get_model_session(OBJDETECTIONREPO, OBJDETECTIONMODEL, FINDERMODEL, DEVICE):
+#         models = []
 
-        objectDetectorModel = torch.hub.load(OBJDETECTIONREPO, OBJDETECTIONMODEL)
-        objectFinderModel, preProcess = clip.load(FINDERMODEL, device=DEVICE)
-        models.append(objectDetectorModel)
-        models.append(objectFinderModel)
-        models.append(preProcess)    
+#         objectDetectorModel = torch.hub.load(OBJDETECTIONREPO, OBJDETECTIONMODEL)
+#         objectFinderModel, preProcess = clip.load(FINDERMODEL, device=DEVICE)
+#         models.append(objectDetectorModel)
+#         models.append(objectFinderModel)
+#         models.append(preProcess)    
 
-        return models
+#         return models
 
-try:
-    models = get_model_session(OBJDETECTIONREPO, OBJDETECTIONMODEL, FINDERMODEL, DEVICE)
-    # objectDetectorModel, objectFinderModel, preProcess = get_model_session(OBJDETECTIONREPO,
-    #                                                                         OBJDETECTIONMODEL,
-    #                                                                         FINDERMODEL, DEVICE)
-    st.info('Models loaded!')
-except:
-    print('[LOG]  model load exception')
+# try:
+#     models = get_model_session(OBJDETECTIONREPO, OBJDETECTIONMODEL, FINDERMODEL, DEVICE)
+#     # objectDetectorModel, objectFinderModel, preProcess = get_model_session(OBJDETECTIONREPO,
+#     #                                                                         OBJDETECTIONMODEL,
+#     #                                                                         FINDERMODEL, DEVICE)
+#     st.info('Models loaded!')
+# except:
+#     print('[LOG]  model load exception')
 # ================================================================================================
 uploaded_file = st.file_uploader("Upload a jpg image", type=["jpg"])
 image = 0
@@ -141,5 +141,17 @@ query = st.text_input('Search Query:')
 left_column, right_column = st.columns(2)
 pressed = left_column.button('Search!')
 if pressed:
+    @st.experimental_singleton
+    def get_model_session(OBJDETECTIONREPO, OBJDETECTIONMODEL, FINDERMODEL, DEVICE):
+        models = []
+
+        objectDetectorModel = torch.hub.load(OBJDETECTIONREPO, OBJDETECTIONMODEL)
+        objectFinderModel, preProcess = clip.load(FINDERMODEL, device=DEVICE)
+        models.append(objectDetectorModel)
+        models.append(objectFinderModel)
+        models.append(preProcess)    
+
+        return models    
+    models = get_model_session(OBJDETECTIONREPO, OBJDETECTIONMODEL, FINDERMODEL, DEVICE)        
     pipeline(image, query, models)
     st.balloons()
