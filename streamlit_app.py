@@ -128,8 +128,8 @@ image = 0
 if uploaded_file is not None:
     # file_details = {"Filename":uploaded_file.name,"FileType":uploaded_file.type,"FileSize":uploaded_file.size}
     file_bytes = np.asarray(bytearray(uploaded_file.read()), dtype=np.uint8)
-    opencv_image = cv2.imdecode(file_bytes, 1)
-    st.image(opencv_image, channels="BGR", caption='Your uploaded image')
+    image = cv2.imdecode(file_bytes, 1)
+    st.image(image, channels="BGR", caption='Your uploaded image')
     
 
 # ================================================================================================
