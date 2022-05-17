@@ -80,10 +80,9 @@ st.markdown(
 
 about = """
 This demo provides a simple interface to search between the objects in a given image.
-SBO is based on the [Yolo v5](https://github.com/ultralytics/yolov5) and the [Openai CLIP](https://github.com/openai/CLIP) models.
+SBO is based on the [YOLO v5](https://github.com/ultralytics/yolov5) and the [Openai CLIP](https://github.com/openai/CLIP) models.
 """
 st.markdown(about, unsafe_allow_html=True)
-
 
 # ================================================================================================
 OBJDETECTIONMODEL = st.selectbox(
@@ -91,13 +90,11 @@ OBJDETECTIONMODEL = st.selectbox(
      ('yolov5x6', 'yolov5n', 'yolov5s', 'yolov5x'))
 
 st.info('yolov5x6 is accurate and yolov5s is fast.')
-st.write('You selected:', OBJDETECTIONMODEL)
 
 # ================================================================================================
 FINDERMODEL = st.selectbox(
-     'Which model do you want to use for object finder?',
+     'Which model do you want to use for matching objects?',
      ('ViT-B/32', 'ViT-B/16'))
-st.write('You selected:', FINDERMODEL)
 
 # ================================================================================================
 uploaded_file = st.file_uploader("Upload a jpg image", type=["jpg"])
@@ -108,8 +105,15 @@ if uploaded_file is not None:
     image = cv2.imdecode(file_bytes, 1)
     st.image(image, channels="BGR", caption='Your uploaded image')
     
+# ================================================================================================
+selected_image = st.selectbox(
+     'OR, Select an already uploaded image:',
+     ('None','1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg'))
+if selected_image != 'None':
+    image = cv2.imread("test_images/"+selected_image)
 
 # ================================================================================================
+
 query = st.text_input('Search Query:')
 
 # ================================================================================================
