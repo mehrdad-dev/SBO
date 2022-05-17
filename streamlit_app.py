@@ -58,19 +58,19 @@ def findObjects(listOfObjects:list, query:str, model, preprocess, device:str, N)
 
 
 def pipeline(image, query, models):
-    print('======TESTING======')
-    print(models)
-    # listOfObjects, detectedObjects = objectDetection(image, models[0])
-    # scores, images = findObjects(listOfObjects, query, models[1], models[2], DEVICE, N)
-    # detectedObjects = np.array(detectedObjects)
+    # print('======TESTING======')
+    # print(models)
+    listOfObjects, detectedObjects = objectDetection(image, models[0])
+    scores, images = findObjects(listOfObjects, query, models[1], models[2], DEVICE, N)
+    detectedObjects = np.array(detectedObjects)
 
-    # st.title('Detected Objects:')
-    # st.image(detectedObjects, caption='Detected Objects', use_column_width=True)
+    st.title('Detected Objects:')
+    st.image(detectedObjects, caption='Detected Objects', use_column_width=True)
     
-    # st.title('Finded Objects:')
-    # for index, img in enumerate(images):
-    #     img = np.array(img)
-    #     st.image(img, caption="Score: "+str(scores[index]))
+    st.title('Finded Objects:')
+    for index, img in enumerate(images):
+        img = np.array(img)
+        st.image(img, caption="Score: "+str(scores[index]))
 
 
 # ================================================================================================
@@ -151,7 +151,7 @@ if pressed:
         models.append(objectFinderModel)
         models.append(preProcess)    
 
-        return models    
+        return models
     models = get_model_session(OBJDETECTIONREPO, OBJDETECTIONMODEL, FINDERMODEL, DEVICE)        
     pipeline(image, query, models)
     st.balloons()
