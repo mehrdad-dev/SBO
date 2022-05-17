@@ -111,6 +111,7 @@ selected_image = st.selectbox(
      ('None','1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg'))
 if selected_image != 'None':
     image = cv2.imread("test_images/"+selected_image)
+    st.image(image, channels="BGR", caption='Your selected image')
 
 # ================================================================================================
 
