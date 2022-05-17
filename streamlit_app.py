@@ -113,9 +113,9 @@ if go:
         models.append(preProcess)
         
 
-        # return objectDetectorModel, objectFinderModel, preProcess
+        return models
 
-
+    models = get_model_session(OBJDETECTIONREPO, OBJDETECTIONMODEL, FINDERMODEL, DEVICE)
     # objectDetectorModel, objectFinderModel, preProcess = get_model_session(OBJDETECTIONREPO,
     #                                                                         OBJDETECTIONMODEL,
     #                                                                         FINDERMODEL, DEVICE)
