@@ -1,5 +1,4 @@
 import streamlit as st
-# import matplotlib.pyplot as plt
 from glob import glob
 from PIL import Image
 import numpy as np
@@ -7,7 +6,7 @@ import torch
 import clip
 import cv2
 import os
-# ================================================================================================
+# # ================================================================================================
 
 OBJDETECTIONREPO = 'ultralytics/yolov5'
 DEVICE = 'cpu'
@@ -123,15 +122,14 @@ st.write('You selected:', FINDERMODEL)
 query = st.text_input('Search Query:')
 # ================================================================================================
 
-uploaded_file = st.file_uploader("Upload an jpg image", type=["jpg"])
+uploaded_file = st.file_uploader("Upload a jpg image", type=["jpg"])
 image = 0
 if uploaded_file is not None:
-    image = uploaded_file.read()
-    image = np.array(image)
-    print(image)
+    # file_details = {"Filename":uploaded_file.name,"FileType":uploaded_file.type,"FileSize":uploaded_file.size}
+    file_bytes = np.asarray(bytearray(uploaded_file.read()), dtype=np.uint8)
+    opencv_image = cv2.imdecode(file_bytes, 1)
+    st.image(opencv_image, channels="BGR", caption='Your uploaded image')
     
-# file_details = {"Filename":image_file.name,"FileType":image_file.type,"FileSize":image_file.size}
-# st.write(file_details)
 
 # ================================================================================================
 
