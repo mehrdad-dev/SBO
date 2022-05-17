@@ -121,6 +121,7 @@ if go:
     #                                                                         FINDERMODEL, DEVICE)
     st.info('Models loaded!')
 
+print(models)
 # ================================================================================================
 
 uploaded_file = st.file_uploader("Upload a jpg image", type=["jpg"])
