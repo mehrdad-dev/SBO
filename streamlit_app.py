@@ -68,13 +68,10 @@ def pipeline(image, query):
     st.title('Finded Objects:')
     for index, img in enumerate(images):
         img = np.array(img)
-        st.image(img, caption='Score: ' + scores[index])
+        st.image(img, caption="Score: "+str(scores[index]))
 
 # ================================================================================================
-image = Image.open('test_images/logo.png')
-st.image(image, caption=None)
-
-st.title('Search Between the Objects - SBO')
+st.title('🔍 Search Between the Objects - SBO')
 st.markdown(
     'By [Mehrdad Mohammadian](https://mehrdad-dev.github.io)', unsafe_allow_html=True)
 
