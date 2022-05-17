@@ -104,6 +104,7 @@ if go:
     @st.experimental_singleton
     def get_model_session(OBJDETECTIONREPO, OBJDETECTIONMODEL, FINDERMODEL, DEVICE):
         global models
+        
         objectDetectorModel = torch.hub.load(OBJDETECTIONREPO, OBJDETECTIONMODEL)
         objectFinderModel, preProcess = clip.load(FINDERMODEL, device=DEVICE)
         models.append(objectDetectorModel)
