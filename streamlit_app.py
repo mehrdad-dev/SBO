@@ -6,7 +6,59 @@ import torch
 import clip
 import cv2
 import os
-# # ================================================================================================
+
+# ================================================================================================
+st.title('🔍 Search Between the Objects')
+st.markdown(
+    'By [Mehrdad Mohammadian](https://mehrdad-dev.github.io)', unsafe_allow_html=True)
+
+about = """
+This demo provides a simple interface to search between the objects in a given image.
+SBO is based on the [Yolo v5](https://github.com/ultralytics/yolov5) and the [Openai CLIP](https://github.com/openai/CLIP) models.
+"""
+st.markdown(about, unsafe_allow_html=True)
+
+
+# ================================================================================================
+OBJDETECTIONMODEL = st.selectbox(
+     'Which model do you want to use for object detection?',
+     ('yolov5x6', 'yolov5n', 'yolov5s', 'yolov5x'))
+
+st.info('yolov5x6 is accurate and yolov5s is fast.')
+st.write('You selected:', OBJDETECTIONMODEL)
+
+# ================================================================================================
+FINDERMODEL = st.selectbox(
+     'Which model do you want to use for object finder?',
+     ('ViT-B/32', 'ViT-B/16'))
+st.write('You selected:', FINDERMODEL)
+
+# ================================================================================================
+left_column, right_column = st.columns(2)
+go = left_column.button('Load Models!')
+models = []
+if go:
+    @st.experimental_singleton
+    def get_model_session(OBJDETECTIONREPO, OBJDETECTIONMODEL, FINDERMODEL, DEVICE):
+        global models
+
+        objectDetectorModel = torch.hub.load(OBJDETECTIONREPO, OBJDETECTIONMODEL)
+        objectFinderModel, preProcess = clip.load(FINDERMODEL, device=DEVICE)
+        models.append(objectDetectorModel)
+        models.append(objectFinderModel)
+        models.append(preProcess)    
+
+        # return models
+
+try:
+    get_model_session(OBJDETECTIONREPO, OBJDETECTIONMODEL, FINDERMODEL, DEVICE)
+    # objectDetectorModel, objectFinderModel, preProcess = get_model_session(OBJDETECTIONREPO,
+    #                                                                         OBJDETECTIONMODEL,
+    #                                                                         FINDERMODEL, DEVICE)
+    st.info('Models loaded!')
+except:
+    print('[LOG]  model load exception')
+# ================================================================================================
 
 OBJDETECTIONREPO = 'ultralytics/yolov5'
 DEVICE = 'cpu'
@@ -72,59 +124,9 @@ def pipeline(image, query):
         img = np.array(img)
         st.image(img, caption="Score: "+str(scores[index]))
 
-# ================================================================================================
-st.title('🔍 Search Between the Objects')
-st.markdown(
-    'By [Mehrdad Mohammadian](https://mehrdad-dev.github.io)', unsafe_allow_html=True)
-
-about = """
-This demo provides a simple interface to search between the objects in a given image.
-SBO is based on the [Yolo v5](https://github.com/ultralytics/yolov5) and the [Openai CLIP](https://github.com/openai/CLIP) models.
-"""
-st.markdown(about, unsafe_allow_html=True)
+# # ================================================================================================
 
 
-# ================================================================================================
-OBJDETECTIONMODEL = st.selectbox(
-     'Which model do you want to use for object detection?',
-     ('yolov5x6', 'yolov5n', 'yolov5s', 'yolov5x'))
-
-st.info('yolov5x6 is accurate and yolov5s is fast.')
-st.write('You selected:', OBJDETECTIONMODEL)
-
-# ================================================================================================
-FINDERMODEL = st.selectbox(
-     'Which model do you want to use for object finder?',
-     ('ViT-B/32', 'ViT-B/16'))
-st.write('You selected:', FINDERMODEL)
-
-# ================================================================================================
-left_column, right_column = st.columns(2)
-go = left_column.button('Load Models!')
-models = []
-if go:
-    @st.experimental_singleton
-    def get_model_session(OBJDETECTIONREPO, OBJDETECTIONMODEL, FINDERMODEL, DEVICE):
-        global models
-
-        objectDetectorModel = torch.hub.load(OBJDETECTIONREPO, OBJDETECTIONMODEL)
-        objectFinderModel, preProcess = clip.load(FINDERMODEL, device=DEVICE)
-        models.append(objectDetectorModel)
-        models.append(objectFinderModel)
-        models.append(preProcess)    
-
-        # return models
-
-try:
-    get_model_session(OBJDETECTIONREPO, OBJDETECTIONMODEL, FINDERMODEL, DEVICE)
-    # objectDetectorModel, objectFinderModel, preProcess = get_model_session(OBJDETECTIONREPO,
-    #                                                                         OBJDETECTIONMODEL,
-    #                                                                         FINDERMODEL, DEVICE)
-    st.info('Models loaded!')
-    print(models)
-except:
-    print('[LOG]  model load exception')
-# ================================================================================================
 
 uploaded_file = st.file_uploader("Upload a jpg image", type=["jpg"])
 image = 0
