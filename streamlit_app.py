@@ -95,7 +95,7 @@ OBJDETECTIONMODEL = st.selectbox(
      'Which model do you want to use for object detection?',
      ('yolov5x6', 'yolov5n', 'yolov5s', 'yolov5x'))
 
-st.info('yolov5x6 is accurate.')
+st.info('yolov5x6 is accurate and yolov5s is fast.')
 st.write('You selected:', OBJDETECTIONMODEL)
 
 # ================================================================================================
@@ -105,21 +105,22 @@ FINDERMODEL = st.selectbox(
 st.write('You selected:', FINDERMODEL)
 
 # ================================================================================================
-# @st.experimental_singleton
-# def get_model_session(OBJDETECTIONREPO, OBJDETECTIONMODEL, FINDERMODEL, DEVICE):
-#     objectDetectorModel = torch.hub.load(OBJDETECTIONREPO, OBJDETECTIONMODEL)
-#     objectFinderModel, preProcess = clip.load(FINDERMODEL, device=DEVICE)
+@st.experimental_singleton
+def get_model_session(OBJDETECTIONREPO, OBJDETECTIONMODEL, FINDERMODEL, DEVICE):
+    objectDetectorModel = torch.hub.load(OBJDETECTIONREPO, OBJDETECTIONMODEL)
+    objectFinderModel, preProcess = clip.load(FINDERMODEL, device=DEVICE)
 
-#     return objectDetectorModel, objectFinderModel, preProcess
+    return objectDetectorModel, objectFinderModel, preProcess
 
 
-# objectDetectorModel, objectFinderModel, preProcess = get_model_session(OBJDETECTIONREPO,
-#                                                                         OBJDETECTIONMODEL,
-#                                                                          FINDERMODEL, DEVICE)
+objectDetectorModel, objectFinderModel, preProcess = get_model_session(OBJDETECTIONREPO,
+                                                                        OBJDETECTIONMODEL,
+                                                                         FINDERMODEL, DEVICE)
 
 
 # ================================================================================================
 query = st.text_input('Search Query:')
+
 # ================================================================================================
 
 uploaded_file = st.file_uploader("Upload a jpg image", type=["jpg"])
