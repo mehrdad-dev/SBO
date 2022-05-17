@@ -95,10 +95,15 @@ st.markdown(about, unsafe_allow_html=True)
 uploaded_file = st.file_uploader("Upload an jpg image", type=["jpg"])
 image = 0
 if uploaded_file is not None:
+    global image
     image = uploaded_file.read()
     image = np.array(image)
+    print(image)
     
-print(image)    
+# file_details = {"Filename":image_file.name,"FileType":image_file.type,"FileSize":image_file.size}
+# st.write(file_details)
+
+
 # ================================================================================================
 OBJDETECTIONMODEL = st.selectbox(
      'Which model do you want to use for object detection?',
