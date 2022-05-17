@@ -113,10 +113,10 @@ if go:
         models.append(objectFinderModel)
         models.append(preProcess)    
 
-        # return models
+        return models
 
 try:
-    get_model_session(OBJDETECTIONREPO, OBJDETECTIONMODEL, FINDERMODEL, DEVICE)
+    models = get_model_session(OBJDETECTIONREPO, OBJDETECTIONMODEL, FINDERMODEL, DEVICE)
     # objectDetectorModel, objectFinderModel, preProcess = get_model_session(OBJDETECTIONREPO,
     #                                                                         OBJDETECTIONMODEL,
     #                                                                         FINDERMODEL, DEVICE)
