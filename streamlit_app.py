@@ -98,7 +98,7 @@ st.write('You selected:', FINDERMODEL)
 
 # ================================================================================================
 left_column, right_column = st.columns(2)
-go = left_column.button('Go!')
+go = left_column.button('Load Models!')
 if go:
     @st.experimental_singleton
     def get_model_session(OBJDETECTIONREPO, OBJDETECTIONMODEL, FINDERMODEL, DEVICE):
@@ -108,7 +108,7 @@ if go:
         return objectDetectorModel, objectFinderModel, preProcess
 
 
-    objectDetectorModel, objectFinderModel, preProcess = get_model_session(OBJDETECTIONREPO,
+    global objectDetectorModel, objectFinderModel, preProcess = get_model_session(OBJDETECTIONREPO,
                                                                             OBJDETECTIONMODEL,
                                                                             FINDERMODEL, DEVICE)
     st.info('Models loaded!')
