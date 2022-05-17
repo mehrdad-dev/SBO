@@ -106,20 +106,18 @@ FINDERMODEL = st.selectbox(
 st.write('You selected:', FINDERMODEL)
 
 # ================================================================================================
-@st.experimental_singleton
-def get_model_session(OBJDETECTIONREPO, OBJDETECTIONMODEL, FINDERMODEL, DEVICE):
-    objectDetectorModel = torch.hub.load(OBJDETECTIONREPO, OBJDETECTIONMODEL)
-    objectFinderModel, preProcess = clip.load(FINDERMODEL, device=DEVICE)
+# @st.experimental_singleton
+# def get_model_session(OBJDETECTIONREPO, OBJDETECTIONMODEL, FINDERMODEL, DEVICE):
+#     objectDetectorModel = torch.hub.load(OBJDETECTIONREPO, OBJDETECTIONMODEL)
+#     objectFinderModel, preProcess = clip.load(FINDERMODEL, device=DEVICE)
 
-    return objectDetectorModel, objectFinderModel, preProcess
+#     return objectDetectorModel, objectFinderModel, preProcess
 
 
-objectDetectorModel, objectFinderModel, preProcess = get_model_session(OBJDETECTIONREPO,
-                                                                        OBJDETECTIONMODEL,
-                                                                         FINDERMODEL, DEVICE)
+# objectDetectorModel, objectFinderModel, preProcess = get_model_session(OBJDETECTIONREPO,
+#                                                                         OBJDETECTIONMODEL,
+#                                                                          FINDERMODEL, DEVICE)
 
-# objectDetectorModel = torch.hub.load(OBJDETECTIONREPO, OBJDETECTIONMODEL)
-# objectFinderModel, preProcess = clip.load(FINDERMODEL, device=DEVICE)
 
 # ================================================================================================
 query = st.text_input('Search Query:')
@@ -135,6 +133,7 @@ if uploaded_file is not None:
 # file_details = {"Filename":image_file.name,"FileType":image_file.type,"FileSize":image_file.size}
 # st.write(file_details)
 
+# ================================================================================================
 
 
 left_column, right_column = st.columns(2)
