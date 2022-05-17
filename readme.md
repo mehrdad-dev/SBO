@@ -12,6 +12,8 @@ Run this notebook on Google Colab and test on your images!
 [Open on nbviewer](https://nbviewer.org/github/mehrdad-dev/SBO/blob/main/notebooks/search_objects_on_images.ipynb#)
 
 ## Example
+Sorted from left based on similarity.
+
 **Query:** Clock
 
 ![Mehrdad Mohammadian](https://raw.githubusercontent.com/mehrdad-dev/SBO/main/test_images/ex1.png)
