@@ -58,6 +58,7 @@ def findObjects(listOfObjects:list, query:str, model, preprocess, device:str, N)
 
 
 def pipeline(image, query):
+    global models
     listOfObjects, detectedObjects = objectDetection(image, models[0])
     scores, images = findObjects(listOfObjects, query, models[1], models[2], DEVICE, N)
     detectedObjects = np.array(detectedObjects)
@@ -104,7 +105,7 @@ if go:
     @st.experimental_singleton
     def get_model_session(OBJDETECTIONREPO, OBJDETECTIONMODEL, FINDERMODEL, DEVICE):
         global models
-        
+
         objectDetectorModel = torch.hub.load(OBJDETECTIONREPO, OBJDETECTIONMODEL)
         objectFinderModel, preProcess = clip.load(FINDERMODEL, device=DEVICE)
         models.append(objectDetectorModel)
