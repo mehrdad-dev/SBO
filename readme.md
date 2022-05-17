@@ -12,7 +12,7 @@ Run this notebook on Google Colab and test on your images!
 [<img src="https://colab.research.google.com/assets/colab-badge.svg" align="center">](https://colab.research.google.com/github/mehrdad-dev/SBO/blob/master/notebooks/search_objects_on_images.ipynb)
 
 
-[Open on nbviewer](https://nbviewer.org/github/mehrdad-dev/SBO/blob/main/notebooks/search_objects_on_images.ipynb#)
+[Open in nbviewer](https://nbviewer.org/github/mehrdad-dev/SBO/blob/main/notebooks/search_objects_on_images.ipynb#)
 
 ## Example
 Sorted from left based on similarity.
