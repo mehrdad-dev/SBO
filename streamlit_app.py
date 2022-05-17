@@ -58,8 +58,8 @@ def findObjects(listOfObjects:list, query:str, model, preprocess, device:str, N)
 
 
 def pipeline(image, query):
-    listOfObjects, detectedObjects = objectDetection(image, objectDetectorModel)
-    scores, images = findObjects(listOfObjects, query, objectFinderModel, preProcess, DEVICE, N)
+    listOfObjects, detectedObjects = objectDetection(image, models[0])
+    scores, images = findObjects(listOfObjects, query, models[1], models[2], DEVICE, N)
     detectedObjects = np.array(detectedObjects)
 
     st.title('Detected Objects:')
@@ -99,16 +99,15 @@ st.write('You selected:', FINDERMODEL)
 # ================================================================================================
 left_column, right_column = st.columns(2)
 go = left_column.button('Load Models!')
-objectDetectorModel =  objectFinderModel =  preProcess = 0
+models = []
 if go:
     @st.experimental_singleton
     def get_model_session(OBJDETECTIONREPO, OBJDETECTIONMODEL, FINDERMODEL, DEVICE):
-        global objectDetectorModel
-        global objectFinderModel
-        global preProcess
-
         objectDetectorModel = torch.hub.load(OBJDETECTIONREPO, OBJDETECTIONMODEL)
         objectFinderModel, preProcess = clip.load(FINDERMODEL, device=DEVICE)
+        models.append(objectDetectorModel)
+        models.append(objectFinderModel)
+        models.append(preProcess)
         
 
         # return objectDetectorModel, objectFinderModel, preProcess
@@ -122,6 +121,7 @@ if go:
 # ================================================================================================
 
 uploaded_file = st.file_uploader("Upload a jpg image", type=["jpg"])
+image = 0
 if uploaded_file is not None:
     # file_details = {"Filename":uploaded_file.name,"FileType":uploaded_file.type,"FileSize":uploaded_file.size}
     file_bytes = np.asarray(bytearray(uploaded_file.read()), dtype=np.uint8)
