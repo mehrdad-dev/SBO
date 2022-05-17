@@ -122,7 +122,6 @@ if go:
 # ================================================================================================
 
 uploaded_file = st.file_uploader("Upload a jpg image", type=["jpg"])
-image = 0
 if uploaded_file is not None:
     # file_details = {"Filename":uploaded_file.name,"FileType":uploaded_file.type,"FileSize":uploaded_file.size}
     file_bytes = np.asarray(bytearray(uploaded_file.read()), dtype=np.uint8)
