@@ -115,13 +115,15 @@ if go:
 
         return models
 
+try:
     models = get_model_session(OBJDETECTIONREPO, OBJDETECTIONMODEL, FINDERMODEL, DEVICE)
     # objectDetectorModel, objectFinderModel, preProcess = get_model_session(OBJDETECTIONREPO,
     #                                                                         OBJDETECTIONMODEL,
     #                                                                         FINDERMODEL, DEVICE)
     st.info('Models loaded!')
-
-print(models)
+    print(models)
+except:
+    print('[LOG]  model load exception')
 # ================================================================================================
 
 uploaded_file = st.file_uploader("Upload a jpg image", type=["jpg"])
