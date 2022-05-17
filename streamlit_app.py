@@ -13,7 +13,7 @@ OBJDETECTIONREPO = 'ultralytics/yolov5'
 DEVICE = 'cpu'
 N = 5
 
-def objectDetection(img:str, model) -> list:
+def objectDetection(img, model) -> list:
     image = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
     # image_name = random
     # image_name = image_name.split('.')[0]
@@ -93,9 +93,12 @@ st.markdown(about, unsafe_allow_html=True)
 
 # ================================================================================================
 uploaded_file = st.file_uploader("Upload an jpg image", type=["jpg"])
+image = 0
 if uploaded_file is not None:
     image = uploaded_file.getvalue()
+    image = np.array(image)
     
+print(image)    
 # ================================================================================================
 OBJDETECTIONMODEL = st.selectbox(
      'Which model do you want to use for object detection?',
