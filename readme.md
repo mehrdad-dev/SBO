@@ -3,7 +3,11 @@
 Search between the objects in an image.
 
 ## Demo
+Demo is ready!
+
 [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/mehrdad-dev/sbo/main)
+
+(Sometimes, the Streamlit website may crash! because models are heavy for it.)
 
 ## Notebook
 Run this notebook on Google Colab and test on your images!
