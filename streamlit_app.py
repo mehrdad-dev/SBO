@@ -19,12 +19,12 @@ def objectDetection(img, model) -> tuple():
 
     result = model(image)
     croped_objects = result.crop(save=False)
-    detectedObjects = result.render()[0]
     
     listOfObjects = []
     for obj in croped_objects:
         listOfObjects.append(cv2.cvtColor(obj['im'], cv2.COLOR_BGR2RGB))
 
+    detectedObjects = result.render()[0]
     # path = image_name + '/crops/**/*.jpg'    
 
     # listOfObjects = []
