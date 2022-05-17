@@ -7,6 +7,10 @@ import clip
 import cv2
 import os
 
+OBJDETECTIONREPO = 'ultralytics/yolov5'
+DEVICE = 'cpu'
+N = 5
+
 # ================================================================================================
 st.title('🔍 Search Between the Objects')
 st.markdown(
@@ -60,9 +64,6 @@ except:
     print('[LOG]  model load exception')
 # ================================================================================================
 
-OBJDETECTIONREPO = 'ultralytics/yolov5'
-DEVICE = 'cpu'
-N = 5
 
 def objectDetection(img, model) -> tuple():
     image = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
@@ -125,8 +126,6 @@ def pipeline(image, query):
         st.image(img, caption="Score: "+str(scores[index]))
 
 # # ================================================================================================
-
-
 
 uploaded_file = st.file_uploader("Upload a jpg image", type=["jpg"])
 image = 0
