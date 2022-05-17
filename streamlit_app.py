@@ -14,7 +14,7 @@ DEVICE = 'cpu'
 N = 5
 
 def objectDetection(img:str, model) -> list:
-    image = cv2.cvtColor(cv2.imread(img), cv2.COLOR_BGR2RGB)
+    image = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
     # image_name = random
     # image_name = image_name.split('.')[0]
 
