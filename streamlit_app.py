@@ -110,13 +110,12 @@ if go:
         objectFinderModel, preProcess = clip.load(FINDERMODEL, device=DEVICE)
         models.append(objectDetectorModel)
         models.append(objectFinderModel)
-        models.append(preProcess)
-        
+        models.append(preProcess)    
 
-        return models
+        # return models
 
 try:
-    models = get_model_session(OBJDETECTIONREPO, OBJDETECTIONMODEL, FINDERMODEL, DEVICE)
+    get_model_session(OBJDETECTIONREPO, OBJDETECTIONMODEL, FINDERMODEL, DEVICE)
     # objectDetectorModel, objectFinderModel, preProcess = get_model_session(OBJDETECTIONREPO,
     #                                                                         OBJDETECTIONMODEL,
     #                                                                         FINDERMODEL, DEVICE)
