@@ -97,17 +97,21 @@ FINDERMODEL = st.selectbox(
 st.write('You selected:', FINDERMODEL)
 
 # ================================================================================================
-@st.experimental_singleton
-def get_model_session(OBJDETECTIONREPO, OBJDETECTIONMODEL, FINDERMODEL, DEVICE):
-    objectDetectorModel = torch.hub.load(OBJDETECTIONREPO, OBJDETECTIONMODEL)
-    objectFinderModel, preProcess = clip.load(FINDERMODEL, device=DEVICE)
+left_column, right_column = st.columns(2)
+go = left_column.button('Go!')
+if go:
+    @st.experimental_singleton
+    def get_model_session(OBJDETECTIONREPO, OBJDETECTIONMODEL, FINDERMODEL, DEVICE):
+        objectDetectorModel = torch.hub.load(OBJDETECTIONREPO, OBJDETECTIONMODEL)
+        objectFinderModel, preProcess = clip.load(FINDERMODEL, device=DEVICE)
 
-    return objectDetectorModel, objectFinderModel, preProcess
+        return objectDetectorModel, objectFinderModel, preProcess
 
 
-objectDetectorModel, objectFinderModel, preProcess = get_model_session(OBJDETECTIONREPO,
-                                                                        OBJDETECTIONMODEL,
-                                                                         FINDERMODEL, DEVICE)
+    objectDetectorModel, objectFinderModel, preProcess = get_model_session(OBJDETECTIONREPO,
+                                                                            OBJDETECTIONMODEL,
+                                                                            FINDERMODEL, DEVICE)
+    st.info('Models loaded!')
 
 # ================================================================================================
 
