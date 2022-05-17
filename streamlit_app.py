@@ -71,13 +71,13 @@ def pipeline(image, query):
         st.image(img, caption="Score: "+str(scores[index]))
 
 # ================================================================================================
-st.title('🔍 Search Between the Objects - SBO')
+st.title('🔍 Search Between the Objects')
 st.markdown(
     'By [Mehrdad Mohammadian](https://mehrdad-dev.github.io)', unsafe_allow_html=True)
 
 about = """
 This demo provides a simple interface to search between the objects in a given image.
-SBO Net is based on the [Yolo v5](https://github.com/ultralytics/yolov5) and the [Openai CLIP](https://github.com/openai/CLIP) models.
+SBO is based on the [Yolo v5](https://github.com/ultralytics/yolov5) and the [Openai CLIP](https://github.com/openai/CLIP) models.
 """
 st.markdown(about, unsafe_allow_html=True)
 
