@@ -70,7 +70,11 @@ def pipeline(image, query):
     listOfObjects, detectedObjects = objectDetection(image, objectDetectorModel)
     scores, images = findObjects(listOfObjects, query, objectFinderModel, preProcess, DEVICE, N)
     detectedObjects = np.array(detectedObjects)
+
+    st.title('Detected Objects:')
     st.image(detectedObjects, caption='Detected Objects', use_column_width=True)
+    
+    st.title('Finded Objects:')
     for index, img in enumerate(images):
         img = np.array(img)
         st.image(img, caption=scores[index])
