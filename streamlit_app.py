@@ -109,10 +109,6 @@ objectDetectorModel, objectFinderModel, preProcess = get_model_session(OBJDETECT
                                                                         OBJDETECTIONMODEL,
                                                                          FINDERMODEL, DEVICE)
 
-
-# ================================================================================================
-query = st.text_input('Search Query:')
-
 # ================================================================================================
 
 uploaded_file = st.file_uploader("Upload a jpg image", type=["jpg"])
@@ -125,7 +121,9 @@ if uploaded_file is not None:
     
 
 # ================================================================================================
+query = st.text_input('Search Query:')
 
+# ================================================================================================
 
 left_column, right_column = st.columns(2)
 pressed = left_column.button('Search!')
