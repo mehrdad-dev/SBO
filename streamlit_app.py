@@ -13,20 +13,25 @@ OBJDETECTIONREPO = 'ultralytics/yolov5'
 DEVICE = 'cpu'
 N = 5
 
-def objectDetection(img_path:str, model) -> list:
-    image = cv2.cvtColor(cv2.imread(img_path), cv2.COLOR_BGR2RGB)
-    image_name = os.path.basename(img_path)
-    image_name = image_name.split('.')[0]
+def objectDetection(img:str, model) -> list:
+    image = cv2.cvtColor(cv2.imread(img), cv2.COLOR_BGR2RGB)
+    # image_name = random
+    # image_name = image_name.split('.')[0]
 
     result = model(image)
-    result.crop(save_dir=image_name)
+    croped_objects = result.crop(save=False)
     detectedObjects = result.render()[0]
-    path = image_name + '/crops/**/*.jpg'    
-
+    
     listOfObjects = []
-    for filename in glob(path):
-        obj = cv2.cvtColor(cv2.imread(filename), cv2.COLOR_BGR2RGB)
-        listOfObjects.append(obj)     
+    for obj in croped_objects:
+        listOfObjects.append(cv2.cvtColor(obj['im'], cv2.COLOR_BGR2RGB))
+
+    # path = image_name + '/crops/**/*.jpg'    
+
+    # listOfObjects = []
+    # for filename in glob(path):
+    #     obj = cv2.cvtColor(cv2.imread(filename), cv2.COLOR_BGR2RGB)
+    #     listOfObjects.append(obj)     
 
     return listOfObjects, detectedObjects
 
