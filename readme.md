@@ -12,10 +12,25 @@ Run this notebook on Google Colab and test of your images!
 ## Example
 **Query:** Clock
 
-
 ![Mehrdad Mohammadian](https://raw.githubusercontent.com/mehrdad-dev/SBO/main/test_images/ex1.png)
 
 ![Mehrdad Mohammadian](https://raw.githubusercontent.com/mehrdad-dev/SBO/main/test_images/ex1-1.png)
+
+
+**Query:** wine glass
+
+![Mehrdad Mohammadian](https://raw.githubusercontent.com/mehrdad-dev/SBO/main/test_images/ex2.png)
+
+![Mehrdad Mohammadian](https://raw.githubusercontent.com/mehrdad-dev/SBO/main/test_images/ex2-1.png)
+
+
+**Query:** woman with blue pants
+
+![Mehrdad Mohammadian](https://raw.githubusercontent.com/mehrdad-dev/SBO/main/test_images/ex3.png)
+
+![Mehrdad Mohammadian](https://raw.githubusercontent.com/mehrdad-dev/SBO/main/test_images/ex3-1.png)
+
+
 
 ## License
 
