@@ -18,6 +18,9 @@ Run this notebook on Google Colab and test on your images!
 
 [Open in nbviewer](https://nbviewer.org/github/mehrdad-dev/SBO/blob/main/notebooks/search_objects_on_images.ipynb#)
 
+## Limitations
+Obviously object detector model only can find object classes learned from the COCO dataset. So if your results are not related to your query, maybe the object you want is not in the COCO classes.
+
 ## Example
 Sorted from left based on similarity.
 
