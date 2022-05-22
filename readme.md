@@ -5,7 +5,7 @@ Search between the objects in an image, and cut the region of the detected objec
 ## About this project
 CLIP model was proposed by the OpenAI company, to understand the semantic similarity between images and texts.
 It's used for preform zero-shot learning tasks, to find objects in an image based on an input query.
-![Mehrdad Mohammadian](https://raw.githubusercontent.com/mehrdad-dev/SBO/main/assets/clip.svg)
+![Mehrdad Mohammadian](https://raw.githubusercontent.com/mehrdad-dev/SBO/main/assets/clip.png)
 
 Also, YOLOv5 was used in the first step of the method, to detect the location of the objects in an image.
 
