@@ -7,6 +7,8 @@ CLIP model was proposed by the OpenAI company, to understand the semantic simila
 It's used for preform zero-shot learning tasks, to find objects in an image based on an input query.
 ![Mehrdad Mohammadian](https://raw.githubusercontent.com/mehrdad-dev/SBO/main/assets/clip.png)
 
+CLIP pre-trains an image encoder and a text encoder to predict which images were paired with which texts in our dataset. We then use this behavior to turn CLIP into a zero-shot classifier. We convert all of a dataset’s classes into captions such as “a photo of a dog” and predict the class of the caption CLIP estimates best pairs with a given image.
+
 Also, YOLOv5 was used in the first step of the method, to detect the location of the objects in an image.
 
 
