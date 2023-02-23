@@ -62,3 +62,11 @@ Sorted from left based on similarity.
 ## Based on
 - [OpenAI CLIP](https://pytorch.org/hub/ultralytics_yolov5/)
 - [YOLO v5](https://github.com/openai/CLIP)
+
+
+
+<a href="https://www.buymeacoffee.com/mehrdaddev" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
+
+<a href="http://www.coffeete.ir/mehrdad-dev">
+       <img src="http://www.coffeete.ir/images/buttons/lemonchiffon.png" style="width:260px;" />
+</a>
