@@ -34,12 +34,6 @@ Obviously object detector model only can find object classes learned from the CO
 ## Example
 Sorted from left based on similarity.
 
-**Query:** Clock
-
-![Mehrdad Mohammadian](https://raw.githubusercontent.com/mehrdad-dev/SBO/main/test_images/ex1.png)
-
-![Mehrdad Mohammadian](https://raw.githubusercontent.com/mehrdad-dev/SBO/main/test_images/ex1-1.png)
-
  
 **Query:** wine glass
 
