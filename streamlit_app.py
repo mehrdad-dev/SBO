@@ -116,7 +116,7 @@ if selected_image != 'None':
 query = st.text_input('Search Query:')
 
 # ================================================================================================
-@st.experimental_singleton
+@st.cache_resource
 def get_model_session(OBJDETECTIONREPO, OBJDETECTIONMODEL, FINDERMODEL, DEVICE):
     models = []
 
